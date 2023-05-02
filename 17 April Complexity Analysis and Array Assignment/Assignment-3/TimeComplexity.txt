@@ -1,0 +1,85 @@
+Java Assignment			Time Complexity 			17th april 2023
+
+Q.1. Analyze the time complexity of the following java code and suggest a way to improve it : 
+	int sum = 0;
+for(int i = 1; i <= n; i++) {
+for(int j = 1; j <= i; j++) {
+sum++;
+  }
+}
+
+Ans - It uses nested inner loops in which outer loop runs n times and the inner loop runs i times   in each iteration.
+
+ Total number of times that the statement executed will be 1 , 2 , 3 , 4 , 5 , ….. N. which is the series of natural number therefore its sum = n(n+1)/2.
+
+There the time complexity will be equal to O(n^2).
+
+To improve the program time complexity we can go for the mathematical formula to find the sum of natural number which has the constant time complexity that is O(1).
+
+Q.2. Find the value of T(2) for the recurrence relation T(n) = 3T(n-1) + 12n, given that T(0) = 5.
+Solve - Let T(n) = 3T(n-1) + 12n
+	   
+         By using substitution method.
+         T(n) = 3T(n-1) + 12n
+         T(1) = 15 + 12 = 27 , where T(0) = 5.
+         T(2) = 3T(1) + 12 * 2
+                 = 81 + 24
+     = 105
+         
+         Therefore , the T(2) = 105 	Ans.
+
+Q.3. Given a recurrence relation, solve it using a substitution method. Relation : T(n) = T(n - 1) + c.
+Solution: Let the solution be T(n) = O(n), now let’s prove this using the induction method.
+For that to happen T(n) <= cn where c is some constant.
+T(n) = T(n - 1) + c
+T(n - 1) = T(n - 2) + c
+T(n - 2) = T(n - 3) + c
+|
+|
+T(2) = T(1) + c
+—------------------------ Adding all above equations
+T(n) = T(1) + cn
+Let us assume T(1) to be a constant value.
+T(n) = k + cn
+Therefore, T(n) <= cn
+Hence we can conclude T(n) = O(n).
+
+Q.4. Given a recurrence relation:
+T(n) = 16T(n/4) + n2logn
+Find the time complexity of this relation using the master theorem.
+
+Solution: Fromthegivenrecurrencerelationwecanobtainthevalueofdifferentparameterssuchasa,b,p,and
+k.
+Therelation:T(n)=16T(n/4)+n2logn
+Here,a=16
+b=4
+k=2
+p=1
+bk=42=16
+Herea=bk
+Alsop>-1
+HenceT(n)=θ(nlogab*logp+1n)
+ThereforeT(n)=θ(nlog164*log1+1n)=θ(n1/2log2n)
+
+Q.5. Solve the following recurrence relation using recursion tree method
+T(n) = 2T(n/2) + n
+Ans  = n x log2n + θ (n)
+        = nlog2n + θ (n)
+        = θ (nlog2n)
+
+Q.6. T(n) = 2T(n/2) + K, Solve using Recurrence tree method.
+Ans - Let's put the values into the formulae,
+T(n) = K + 2*K + 4*K + .... + log(n)` times + `O(1) * n
+T(n) = K(1 + 2 + 4 + .... + log(n) times)` + `O(n)
+T(n) = K(2^0 + 2^1 + 2^2 + ....+) log(n) times + O(n)
+In the GP formed above, a = 1 and r = 2, after solving this we get, T(n) = K * (1 / (2 - 1)) + O(n)
+T(n) = K + O(n)
+T(n) = O(n)
+
+
+
+
+
+
+
+
