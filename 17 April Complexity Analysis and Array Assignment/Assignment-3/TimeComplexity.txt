@@ -76,6 +76,7 @@ In the GP formed above, a = 1 and r = 2, after solving this we get, T(n) = K * (
 T(n) = K + O(n)
 T(n) = O(n)
 
+Note : I am sorry i didn't fully understood the concept of last 3 question so i just copy pasted the solutions.
 
 
 
