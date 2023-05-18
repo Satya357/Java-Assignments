@@ -1,4 +1,4 @@
-class Check_Palindrome_04{
+class Check_Palindrome_04 {
     Node head;
 
     class Node {
@@ -28,49 +28,58 @@ class Check_Palindrome_04{
         return;
     }
 
-    public void isPalindrome(Node temp){
-        String str = "";
-        String reverseStr = "";
+    public Node reverseList(Node temp) {
+        Node previous = null;
+        Node current = temp;
 
-        while(temp != null){
-            str += temp.data;
-            temp = temp.next;
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
         }
 
-        for(int i=str.length()-1; i>=0; i--){
-            reverseStr = reverseStr + str.charAt(i);
-        }
-
-        System.out.println("Original String : " + str);
-        System.out.println("Reverse String : " + reverseStr);
-
-        if(str.equals(reverseStr)){
-            System.out.println("Yes it is palindrome.");
-        }else{
-            System.out.println("No it is not a palindrome.");
-        }
-
+        return previous;
     }
 
-    public void printLList() {
-        Node temp = head;
-
-        while (temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
+    public boolean isPalindrome(Node head) {
+        if (head == null || head.next == null) {
+            return true;
         }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node secondHalf = reverseList(slow);
+        Node firstHalf = head;
+
+        while (secondHalf != null) {
+            if (firstHalf.data != secondHalf.data) {
+                return false;
+            }
+            firstHalf = firstHalf.next;
+            secondHalf = secondHalf.next;
+        }
+
+        return true;
     }
 
     public static void main(String[] args) {
         Check_Palindrome_04 llist = new Check_Palindrome_04();
 
-        //Test case
+        // Test case
         llist.insertAtEnd(1);
         llist.insertAtEnd(2);
         llist.insertAtEnd(2);
         llist.insertAtEnd(1);
-        
-        llist.isPalindrome(llist.head);
+        llist.insertAtEnd(1);
+
+        System.out.println(llist.isPalindrome(llist.head));
 
     }
 }
