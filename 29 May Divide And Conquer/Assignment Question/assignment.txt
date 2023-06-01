@@ -1,0 +1,15 @@
+Q.1. What is the time complexity of the Quick Select Algorithm ?
+Ans - (b) O(n)
+
+Q.2. Which data structure is used in Quick Select Algorithm ?
+Ans - (b) Array
+
+Q.3. - Which partitioning scheme is used in Quick Select Algorithm ?
+Ans - (b) Hoare partition scheme
+
+Q.4. - What is the worst-case time complexity of Quick Select Algorithm ?
+Ans - (b) O(n^2)
+
+Q.5. - In the Quick Select Algorithm, which element is chosen as the pivot element ?
+Ans - (d) A random element
+
